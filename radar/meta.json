@@ -1,0 +1,33 @@
+{
+ "periodo": "202606",
+ "data_base": "2026-06-30",
+ "gerado_em": "2026-10-19T20:25:17",
+ "arquivos": 400,
+ "colunas": [
+  "raiz",
+  "porte",
+  "secao",
+  "n",
+  "tot",
+  "pv",
+  "pv65",
+  "pvf",
+  "irr",
+  "irr65",
+  "irr70",
+  "cp",
+  "cp65",
+  "cp70",
+  "fgts",
+  "gar",
+  "neg",
+  "aj",
+  "ano",
+  "prev",
+  "sn"
+ ],
+ "raizes": 2194648,
+ "com_cadastro": true,
+ "corte_pequeno_valor": "2025-10-01",
+ "limite_pequeno_valor": 97260.0
+}
