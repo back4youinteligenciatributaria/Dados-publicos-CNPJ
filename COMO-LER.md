@@ -18,6 +18,7 @@ Repositório público: https://github.com/back4youinteligenciatributaria/Dados-p
 | `radar/` | `r000.txt` … `r399.txt`, `meta.json`, `rfb_transacoes.json` | o mesmo de hoje em `captacao/site/dados/` (TSV em gzip + base64, arquivo = raiz % 400) | LP, app |
 | `nomes/` | `indice.json.gz`, `municipios.json`, `fichas_NN.bin`, `palavras_NN.bin` | blocos gzip lidos por Range; ver `gerar_busca_nomes.py` | LP, app, Painel (busca por nome) |
 | `pgfn/` | `indice.json.gz`, `dominios.json`, `inscricoes_NN.bin` | blocos gzip por CNPJ lidos por Range; ver `gerar_inscricoes.py` | app, simulador do Painel |
+| `socios/` | `s000.bin` … `sfff.bin`, `meta.json` | gzip de `hash16 \t raiz,raiz`; ver `gerar_socios.py` | app (outras empresas da pessoa) |
 | `rfb/` | CSVs originais das transações da Receita | CSV da Receita | conferência |
 
 `regras.json` NÃO está no repositório: continua junto da LP (`dados/regras.json`), porque muda quando sai edital.
@@ -52,6 +53,11 @@ consultar. Texto e lugar ficam com a thread da LP.
 todas as situações (em cobrança, negociada, garantida, suspensa). Só PJ.
 É a base do simulador do Painel (spec 4.4). `situacao` vem como "TIPO_SITUACAO | SITUACAO": separar no " | " antes do `classificar()`
 do motor. Natureza, garantia e rescisão saem de receita + origem + situação; natureza jurídica, porte, MEI e CNAE vêm da BrasilAPI.
+
+## Sócios (socios.js, módulo ES)
+`criarSocios(base + "socios/").empresasDe(nomeCompleto, cpf)` → `["12345678", ...]` (raízes); `empresasDaHolding(cnpj ou raiz)` idem.
+O hash é feito no navegador; nome e CPF não saem dele. Cada consulta baixa um arquivo de ~50 a 70 KB. MEI não está na base de
+sócios. Mostrar como "encontramos estas, são suas?" e só pôr no radar com o toque da pessoa. Depois, cada raiz segue em `radar/` e `pgfn/`.
 
 ## Painel
 O mesmo endereço base. Na próxima rodada: `BASES_PUBLICAS` / diagnóstico completo passam a ler `nomes/` (com `busca_nomes.js`, no lugar

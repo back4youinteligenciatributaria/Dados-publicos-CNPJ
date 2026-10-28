@@ -16,10 +16,13 @@ Tudo vem de fontes abertas do governo. Nada aqui é dado de cliente.
   `dominios.json`; lido por pedaços com `inscricoes.js`. Fonte: PGFN.
 - `radar/rfb_transacoes.json` e `rfb/`: transações tributárias deferidas na Receita (adesão e individual),
   com o desconto real por faixa e as raízes que já negociaram. Fonte: Receita Federal, dados.gov.br.
+- `socios/`: quem é sócio de quê, sem nome nem CPF. `s000.bin` a `sfff.bin` (hash do nome completo + 6 dígitos do meio do CPF,
+  ou da raiz do CNPJ do sócio PJ → raízes) e `meta.json`. Só acha as empresas quem já sabe o nome e o CPF. Lido com `socios.js`.
+  Fonte: Receita Federal (Sócios).
 
 ## Atualização
 Cada fonte vira uma pasta fixa, refeita do zero a partir do download mais novo e trocada inteira no lugar da anterior: PGFN (trimestral)
-→ `radar/` e `pgfn/`; CNPJ da Receita → `nomes/`; transações da Receita → `rfb/` e `radar/rfb_transacoes.json`. O período de cada uma
+→ `radar/` e `pgfn/`; CNPJ da Receita → `nomes/` e `socios/`; transações da Receita → `rfb/` e `radar/rfb_transacoes.json`. O período de cada uma
 está no `meta.json` ou no `indice.json.gz` da pasta. Os endereços não mudam.
 
 ## Fontes
