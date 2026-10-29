@@ -1,7 +1,7 @@
 {
- "periodo": "202606",
- "data_base": "2026-06-30",
- "gerado_em": "2026-10-26T14:59:11",
+ "periodo": "202609",
+ "data_base": "2026-09-30",
+ "gerado_em": "2026-10-29T19:09:05",
  "arquivos": 400,
  "colunas": [
   "raiz",
@@ -26,7 +26,7 @@
   "prev",
   "sn"
  ],
- "raizes": 2834257,
+ "raizes": 3109062,
  "com_cadastro": true,
  "corte_pequeno_valor": "2025-10-01",
  "limite_pequeno_valor": 97260.0
